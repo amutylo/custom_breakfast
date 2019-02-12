@@ -32,8 +32,9 @@ class CustomBreakfastFormatter extends FormatterBase{
     $elements = array();
 
     foreach ($items as $delta => $item) {
+      $breakfast_item = \Drupal::service('plugin.manager.custom_breakfast')->getDefinition($item->value);
       $elements[$delta] = array(
-        '#markup' => '<h1>'. $item->value . '</h1>',
+        '#markup' => '<h1>'. $breakfast_item['label'] . '</h1>',
       );
     }
 
@@ -51,11 +52,13 @@ class CustomBreakfastFormatter extends FormatterBase{
       'uppuma' => 'Uppuma',
     );
 
+    $default_value = $this->getSetting('custom_breakfast');
+
     $output['breakfast'] = array(
-      '#title' => t('Toppings'),
+      '#title' => t('Custom breakfast types'),
       '#type' => 'select',
       '#options' => $options,
-      '#default_value' => $this->getSetting('breakfast'),
+      '#default_value' => $default_value,
     );
 
     return $output;
