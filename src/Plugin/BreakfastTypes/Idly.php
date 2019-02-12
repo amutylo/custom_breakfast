@@ -12,12 +12,14 @@ use Drupal\Core\Annotation\Translation;
 use Drupal\Component\Annotation\Plugin;
 use Drupal\custom_breakfast\BreakfastBase;
 
+
 /**
  * Idly! can't imagine a south Indian breakfast without it.
  *
  *
  * @Plugin(
  *   id = "idly",
+
  *   label = @Translation("Idly"),
  *   image = "https://upload.wikimedia.org/wikipedia/commons/1/11/Idli_Sambar.JPG",
  *   ingredients = {

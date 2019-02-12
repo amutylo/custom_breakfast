@@ -18,6 +18,7 @@ use Drupal\custom_breakfast\BreakfastBase;
  *
  * @Plugin(
  *   id = "uppuma",
+
  *   label = @Translation("Uppuma"),
  *   image = "https://upload.wikimedia.org/wikipedia/commons/c/c1/Chowchowbath.jpg",
  *   ingredients = {

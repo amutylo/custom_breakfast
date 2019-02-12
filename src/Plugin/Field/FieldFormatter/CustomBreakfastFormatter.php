@@ -38,56 +38,12 @@ class CustomBreakfastFormatter extends FormatterBase{
       $markup .= '<img src="'. $breakfast_item->getImage() .'"/>';
       $markup .= '<h2>Goes well with:</h2>'. implode(", ", $breakfast_item->servedWith());
       $elements[$delta] = array(
-        '#markup' => $markup,
+        '#markup' => '<h1>'. $breakfast_item['label'] . '</h1>',
       );
     }
 
     return $elements;
   }
 
-//  /**
-//   * {@inheritdoc}
-//   */
-//  public function settingsForm(array $form, FormStateInterface $form_state) {
-//    //Hardcoded select options.
-//    $options = array(
-//      'idly' => 'Idly',
-//      'dosa' => 'Dosa',
-//      'uppuma' => 'Uppuma',
-//    );
-//
-//    $default_value = $this->getSetting('custom_breakfast');
-//
-//    $output['breakfast'] = array(
-//      '#title' => t('Custom breakfast types'),
-//      '#type' => 'select',
-//      '#options' => $options,
-//      '#default_value' => $default_value,
-//    );
-//
-//    return $output;
-//  }
 
-//  /**
-//   * {@inheritdoc}
-//   */
-//  public function settingsSummary() {
-//
-//    $summary = array();
-//
-//    // Determine ingredients summary.
-//    $breakfast_summary = FALSE;
-//    $breakfast_settings = $this->getSetting('breakfast');
-//
-//
-//    // Display ingredients summary.
-//    if ($breakfast_settings) {
-//      $summary[] = t('Custom breakfast is: @format', array(
-//        '@format' => t($breakfast_summary),
-//      ));
-//    }
-//
-//    return $summary;
-//
-//  }
 }
