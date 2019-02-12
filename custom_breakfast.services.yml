@@ -1,0 +1,4 @@
+services:
+  plugin.manager.custom_breakfast:
+    class: Drupal\custom_breakfast\CustomBreakfastPluginManager
+    arguments: ['@container.namespaces', '@cache.default', '@language_manager', '@module_handler']
