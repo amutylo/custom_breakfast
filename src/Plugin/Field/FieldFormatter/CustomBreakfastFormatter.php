@@ -32,55 +32,62 @@ class CustomBreakfastFormatter extends FormatterBase{
     $elements = array();
 
     foreach ($items as $delta => $item) {
+      $item_value = $item->value;
+      $breakfast_item = \Drupal::service('plugin.manager.custom_breakfast')->createInstance($item_value);
+      $markup = '<h1>'. $breakfast_item->getName() . '</h1>';
+      $markup .= '<img src="'. $breakfast_item->getImage() .'"/>';
+      $markup .= '<h2>Goes well with:</h2>'. implode(", ", $breakfast_item->servedWith());
       $elements[$delta] = array(
-        '#markup' => '<h1>'. $item->value . '</h1>',
+        '#markup' => $markup,
       );
     }
 
     return $elements;
   }
 
-  /**
-   * {@inheritdoc}
-   */
-  public function settingsForm(array $form, FormStateInterface $form_state) {
-    //Hardcoded select options.
-    $options = array(
-      'idly' => 'Idly',
-      'dosa' => 'Dosa',
-      'uppuma' => 'Uppuma',
-    );
+//  /**
+//   * {@inheritdoc}
+//   */
+//  public function settingsForm(array $form, FormStateInterface $form_state) {
+//    //Hardcoded select options.
+//    $options = array(
+//      'idly' => 'Idly',
+//      'dosa' => 'Dosa',
+//      'uppuma' => 'Uppuma',
+//    );
+//
+//    $default_value = $this->getSetting('custom_breakfast');
+//
+//    $output['breakfast'] = array(
+//      '#title' => t('Custom breakfast types'),
+//      '#type' => 'select',
+//      '#options' => $options,
+//      '#default_value' => $default_value,
+//    );
+//
+//    return $output;
+//  }
 
-    $output['breakfast'] = array(
-      '#title' => t('Toppings'),
-      '#type' => 'select',
-      '#options' => $options,
-      '#default_value' => $this->getSetting('breakfast'),
-    );
-
-    return $output;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function settingsSummary() {
-
-    $summary = array();
-
-    // Determine ingredients summary.
-    $breakfast_summary = FALSE;
-    $breakfast_settings = $this->getSetting('breakfast');
-
-
-    // Display ingredients summary.
-    if ($breakfast_settings) {
-      $summary[] = t('Custom breakfast is: @format', array(
-        '@format' => t($breakfast_summary),
-      ));
-    }
-
-    return $summary;
-
-  }
+//  /**
+//   * {@inheritdoc}
+//   */
+//  public function settingsSummary() {
+//
+//    $summary = array();
+//
+//    // Determine ingredients summary.
+//    $breakfast_summary = FALSE;
+//    $breakfast_settings = $this->getSetting('breakfast');
+//
+//
+//    // Display ingredients summary.
+//    if ($breakfast_settings) {
+//      $summary[] = t('Custom breakfast is: @format', array(
+//        '@format' => t($breakfast_summary),
+//      ));
+//    }
+//
+//    return $summary;
+//
+//  }
 }
