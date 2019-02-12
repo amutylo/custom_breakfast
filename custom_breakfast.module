@@ -17,3 +17,13 @@ function custom_breakfast_help($route_name, RouteMatchInterface $route_match) {
       break;
   }
 }
+
+function custom_breakfast_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
+  switch ($entity->bundle()) {
+    // Here you modify only your day content type
+    case 'day':
+      // Setting the title with the value of field_date.
+      $entity->setTitle($entity->get('field_date')->value);
+      break;
+  }
+}
