@@ -68,26 +68,23 @@ class CustomBreakfastFormatter extends FormatterBase{
 //    return $output;
 //  }
 
-//  /**
-//   * {@inheritdoc}
-//   */
-//  public function settingsSummary() {
-//
-//    $summary = array();
-//
-//    // Determine ingredients summary.
-//    $breakfast_summary = FALSE;
-//    $breakfast_settings = $this->getSetting('breakfast');
-//
-//
-//    // Display ingredients summary.
-//    if ($breakfast_settings) {
-//      $summary[] = t('Custom breakfast is: @format', array(
-//        '@format' => t($breakfast_summary),
-//      ));
-//    }
-//
-//    return $summary;
-//
-//  }
+  //  public function settingsSummary() {
+  //
+  //    $summary = array();
+  //
+  //    // Determine ingredients summary.
+  //    $breakfast_summary = FALSE;
+  //    $breakfast_settings = $this->getSetting('breakfast');
+  //
+  //
+  //    // Display ingredients summary.
+  //    if ($breakfast_settings) {
+  //      $summary[] = t('Custom breakfast is: @format', array(
+  //        '@format' => t($breakfast_summary),
+  //      ));
+  //    }
+  //
+  //    return $summary;
+  //
+  //  }
 }
