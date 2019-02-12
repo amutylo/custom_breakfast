@@ -1,0 +1,19 @@
+<?php
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+
+function custom_breakfast_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the breakfast module.
+    case 'help.page.custom_breakfast':
+      $output = '';
+      $output .= '<h3>' . t('About Custom Breakfast module') . '</h3>';
+      $output .= '<p>' . t('Customize your breakfast') . '</p>';
+      return $output;
+      break;
+  }
+}
